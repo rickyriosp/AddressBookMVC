@@ -63,6 +63,7 @@ namespace AddressBookMVC.Controllers
                     contact.ImageData = await _imageService.ConvertFileToByteArrayAsync(contact.ImageFile);
                     contact.ImageType = contact.ImageFile.ContentType;
                 }
+                contact.Created = contact.Created.ToUniversalTime();
 
                 _context.Add(contact);
                 await _context.SaveChangesAsync();
@@ -106,6 +107,7 @@ namespace AddressBookMVC.Controllers
                     contact.ImageData = await _imageService.ConvertFileToByteArrayAsync(contact.ImageFile);
                     contact.ImageType = contact.ImageFile.ContentType;
                 }
+                contact.Created = contact.Created.ToUniversalTime();
 
                 try
                 {
